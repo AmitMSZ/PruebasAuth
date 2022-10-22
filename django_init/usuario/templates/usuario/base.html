@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Base CSS -->
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar close">
+      <header>
+        <div class="image-text">
+          <a class="image" href="/">
+            <img src="{% static 'img/NASA_logo.png' %}" alt="" />
+          </a>
+          <div class="text logo-text">
+            <span class="name">{{user.name}}</span>
+            <span class="profession">{{user.job}}</span>
+          </div>
+        </div>
+
+        <i class="bx bx-chevron-right toggle"></i>
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <li class="search-box">
+            <i class="bx bx-search icon"></i>
+            <input type="text" placeholder="Search..." />
+          </li>
+
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/add_user">
+                <i class="bx bx-user-plus icon"></i>
+                <span class="text nav-text">Agregar Usuario</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="#">
+                <i class="bx bx-bell icon"></i>
+                <span class="text nav-text">Notifications</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="#">
+                <i class="bx bx-pie-chart-alt icon"></i>
+                <span class="text nav-text">Analytics</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="">
+            <a href="accounts/logout">
+              <i class="bx bx-log-out icon"></i>
+              <span class="text nav-text">Logout</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <!-- End Sidebar -->
+
+    <!-- Block Content-->
+    <section class="home container">
+      {% block content %}
+      <table class="table container">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Usuario</th>
+            <th>Cargo</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in usuario %}
+          <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.last_name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.job }}</td>
+            <td>
+              <div class="is-flex">
+                <form action="" method="post" class="mr-1">
+                  {% csrf_token %}
+                  <input type="text" name="id" id="id"  value="{{i.id}}" hidden>
+                  <button class="button is-success is is-outlined">
+                    <span class="icon is-small">
+                      <i class="bx bxs-edit"></i>
+                    </span>
+                  </button>
+                </form>
+                <form action="" method="post" class="ml-1">
+                  {% csrf_token %}
+                  <input type="text" name="id" id="id"  value="{{i.id}}" hidden>
+                  <button class="button is-danger is-outlined">
+                    <span class="icon is-small">
+                      <i class="bx bxs-message-square-x"></i>
+                    </span>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endblock %}
+    </section>
+    <!-- End Block Content-->
+    <script>
+      const body = document.querySelector("body"),
+        sidebar = body.querySelector("nav"),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+
+      toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+      });
+
+      searchBtn.addEventListener("click", () => {
+        sidebar.classList.remove("close");
+      });
+    </script>
+  </body>
+</html>

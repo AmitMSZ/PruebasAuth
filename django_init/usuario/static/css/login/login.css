@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #515a5a;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.ctn-form {
+	background-color: #fff;
+	width: 262px;
+	height: 454px;
+	display: flex;
+	justify-content: center;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.ctn-form form {
+	width: 100%;
+	height: 262px;
+}
+
+/* Header */
+
+.ctn-form form header {
+	background: #ec7225;
+	height: 262px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25% 0 25% 0;
+	user-select: none;
+}
+
+/* Section */
+
+.ctn-form form section {
+	height: 128px;
+}
+
+.ctn-form form section .ctn-user,
+.ctn-form form section .ctn-password-hide {
+	height: 64px;
+	border-bottom: 1px solid #d2d7d3;
+}
+
+.ctn-form form section .ctn-password-hide {
+	align-items: center;
+}
+
+.ctn-form form section .ctn-user .input-username {
+	width: 100%;
+	padding: 15px 20px;
+}
+
+.ctn-form form section .ctn-password-hide .input-password {
+	width: 100%;
+	padding: 15px 20px
+}
+
+.ctn-form form section .ctn-password-hide .error::placeholder {
+}
+
+.ctn-form form section .ctn-user .input-username, 
+.ctn-form form section .ctn-password-hide .input-password {
+	height: 100%;
+	border: none;
+	font-size: 18px;
+	font-weight: 400;
+	outline: none;
+}
+
+.ctn-form form section .ctn-password-hide .show-me {
+	font-size: 12px;
+	color: #515a5a;
+	border: 1px solid #515a5a;
+	border-radius: 100px;
+	padding: 4px 8px;
+	position: relative;
+	right: -12px;
+	width: 18%;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+}
+
+.ctn-form form section .ctn-password-hide .show-me:hover {
+	background: #515a5a;
+	color: #fff;
+}
+
+/* Footer */
+
+.ctn-form form footer {
+	background: #f2f1ef;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 64px;
+	padding-left: 20px;
+	border-radius: 0 0 100% 0;
+}
+
+.ctn-form form footer .ctn-help,
+.ctn-form form footer .ctn-button {
+	height: 80%;
+	width: 100%;
+	display: flex;
+	justify-content: left;
+}
+
+.ctn-form form footer .ctn-help a{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 70%;
+	color: #515a5a;
+	user-select: none;
+}
+
+.ctn-form form footer .ctn-help a img {
+	margin-left: 5px;
+}
+
+.ctn-form form footer .ctn-button button {
+	background: #ec7225;
+	font-size: 20px;
+	color: #fff;
+	width: 100%;
+	border: 0;
+	font-weight: 400;
+	border-radius: 100% 0 0 0;
+	cursor: pointer;
+	text-align: right;
+	padding-right: 22px;
+	user-select: none;
+}
+
+.ctn-form form footer .ctn-button button:hover {
+	background: #515a5a;
+}

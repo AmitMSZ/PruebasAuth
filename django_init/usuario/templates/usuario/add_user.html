@@ -1,0 +1,27 @@
+{% extends 'usuario/base.html' %} 
+{% block content %} 
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="field is-horizontal">
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded has-icons-left">
+                    <input class="input" type="text" placeholder="Ingrese nombre de usuario">
+                    <span class="icon is-small is-left">
+                    <i class='bx bxs-user'></i>
+                    </span>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Ingrese el email">
+                  <span class="icon is-small is-left">
+                    <i class="bx bxs-envelope"></i>
+                  </span>
+                </p>
+              </div>
+              
+        </div>
+    </div>
+</form>
+{% endblock %}
