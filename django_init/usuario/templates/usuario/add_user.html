@@ -1,27 +1,55 @@
-{% extends 'usuario/base.html' %} 
-{% block content %} 
+{% extends 'usuario/base.html' %} {% block content %}
 <form action="" method="post">
-    {% csrf_token %}
+  {% csrf_token %}
+  <div class="field is-vertical">
     <div class="field is-horizontal">
-        <div class="field-body">
-            <div class="field">
-                <p class="control is-expanded has-icons-left">
-                    <input class="input" type="text" placeholder="Ingrese nombre de usuario">
-                    <span class="icon is-small is-left">
-                    <i class='bx bxs-user'></i>
-                    </span>
-                </p>
-            </div>
-            <div class="field">
-                <p class="control is-expanded has-icons-left has-icons-right">
-                  <input class="input" type="email" placeholder="Ingrese el email">
-                  <span class="icon is-small is-left">
-                    <i class="bx bxs-envelope"></i>
-                  </span>
-                </p>
-              </div>
-              
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input
+              class="input"
+              type="text"
+              placeholder="Ingrese usuario"
+            />
+            <span class="icon is-small is-left">
+              <i class="bx bxs-user-circle"></i>
+            </span>
+          </p>
         </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="Ingrese el email del usuario" />
+            <span class="icon is-small is-left">
+              <i class="bx bxs-envelope"></i>
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input
+              class="input"
+              type="text"
+              placeholder="Ingrese nombre del usuario"
+            />
+            <span class="icon is-small is-left">
+              <i class="bx bxs-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Ingrese el apellido del usuario" />
+            <span class="icon is-small is-left">
+              <i class="bx bxs-user"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 {% endblock %}
