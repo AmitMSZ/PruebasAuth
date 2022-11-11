@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin 
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+
 
 class Job(models.Model):
     id = models.AutoField(primary_key=True)
@@ -15,30 +16,31 @@ class Job(models.Model):
 
 
 class UserManager(BaseUserManager):
-    def _create_user(self, username,job,email, name, last_name, password, is_staff, is_superuser,**extra_fields):
+    def _create_user(self, username, job, email, name, last_name, password, is_staff, is_superuser, **extra_fields):
         user = self.model(
-            username = username,
-            job = job,
-            email = email,
-            name = name,
-            last_name = last_name,
-            is_staff = is_staff,
-            is_superuser = is_superuser,
+            username=username,
+            job=job,
+            email=email,
+            name=name,
+            last_name=last_name,
+            is_staff=is_staff,
+            is_superuser=is_superuser,
             **extra_fields
         )
         user.set_password(password)
         user.save(using=self.db)
         return user
-    def create_user(self,username,job,email,name,last_name,password= None,**extra_fields):
-        return self._create_user(username,job,email,name,last_name,password,False,False,**extra_fields)
-    
-    def create_superuser(self,username,job,email,name,last_name,password= None,**extra_fields):
-        return self._create_user(username,job,email,name,last_name,password,True,True,**extra_fields)
+
+    def create_user(self, username, job, email, name, last_name, password=None, **extra_fields):
+        return self._create_user(username, job, email, name, last_name, password, False, False, **extra_fields)
+
+    def create_superuser(self, username, job, email, name, last_name, password=None, **extra_fields):
+        return self._create_user(username, job, email, name, last_name, password, True, True, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.AutoField(primary_key=True)
-    job = models.ForeignKey(Job,null =True,on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, null=True, on_delete=models.CASCADE)
 
     username = models.CharField(
         'Nombre de usuario', unique=True, max_length=30)
@@ -51,7 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['job','email', 'name', 'last_name']
+    REQUIRED_FIELDS = ['job', 'email', 'name', 'last_name']
 
     class Meta:
         db_table = 'user'

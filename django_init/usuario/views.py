@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import * 
+from .models import *
 # Create your views here.
+
+
+def soporte(request):
+    return render(request, 'registration/soporte.html')
+
 
 @login_required
 def inicio(request):
@@ -11,5 +16,7 @@ def inicio(request):
     }
     return render(request, 'usuario/base.html', context)
 
+
+@login_required
 def add_user(request):
-    return render(request,'usuario/add_user.html')
+    return render(request, 'usuario/add_user.html')
