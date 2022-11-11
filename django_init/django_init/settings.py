@@ -81,7 +81,7 @@ DATABASES = {
         "NAME": 'ginventario',
         "USER": 'admin',
         'PASSWORD': 'inacap1234',
-        'HOST': 'ginventario.cblas2nbddcg.us-east-1.rds.amazonaws.com',
+        'HOST': 'ginventario.cdpmb8keqejx.us-east-1.rds.amazonaws.com',
         'PORT': 3306
     }
 }

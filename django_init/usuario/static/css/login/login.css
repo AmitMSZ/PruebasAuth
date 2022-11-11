@@ -61,6 +61,7 @@ a {
 }
 
 .ctn-form form section .ctn-password-hide {
+	display: flex;
 	align-items: center;
 }
 
@@ -70,8 +71,8 @@ a {
 }
 
 .ctn-form form section .ctn-password-hide .input-password {
-	width: 100%;
-	padding: 15px 20px
+	width: 70%;
+	padding: 15px 0 15px 20px
 }
 
 .ctn-form form section .ctn-password-hide .error::placeholder {

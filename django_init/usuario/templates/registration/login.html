@@ -1,78 +1,69 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/login/login.css' %}" />
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="{% static 'js/login/login.js' %}"
-    ></script>
-  </head>
+        <link rel="stylesheet" href="{% static 'css/login/login.css' %}" >
 
-  <body>
-    <div class="ctn-form">
-      <form action="" id="form-login" method="post">
-        <!--  Cross-site request forgery
+        <script type='text/javascript' src= 'https://code.jquery.com/jquery-3.6.1.min.js'></script>
+        <script type='text/javascript' src="{% static 'js/login/login.js' %}"></script>
+    </head>
+
+    <body>
+        <div class="ctn-form">
+            <form action="" method='post'>
+                <!--  Cross-site request forgery
                     en cada peticion que se haga al servidor creara un token con los datos, estos toquen se pueden usar 
                     solo una ves y luego el token queda inservible esto previene siertos ataques http por solucitudes 
                     o peticiones al servidor fraudulentas por black hat.
-                -->
-        {% csrf_token %}
-        <header>
-          <div class="ctn-photo">
-            <img src="{% static 'img/login/logo.png' %}" alt="logo empresa" />
-          </div>
-        </header>
-        <section>
-          <div class="ctn-user">
-            <input
-              type="text"
-              class="input-username"
-              placeholder="Email or Username"
-              name="username"
-              autocomplete="username"
-              maxlength="30"
-              required=""
-              id="id_username"
-            />
-          </div>
-          <div class="ctn-password-hide">
-            <input
-              type="password"
-              class="input-password error"
-              placeholder="Password"
-              name="password"
-              autocomplete="current-password"
-              required=""
-              id="id_password"
-            />
-          </div>
-        </section>
-        <footer>
-          <div class="ctn-help">
-            <a href="#"
-              >Soporte
-              <img
-                src="{% static 'img/login/24hv1.png' %}"
-                width="20px"
-                height="20px"
-                alt="icono soporte"
-              />
-            </a>
-          </div>
-          <div class="ctn-button">
-            <button type="submit">Log in</button>
-          </div>
-        </footer>
-      </form>
-    </div>
-  </body>
+                --> 
+                {% csrf_token %}
+                <header>
+                <div class="ctn-photo">
+                    <img src="{% static 'img/login/logo.png' %}" alt="logo empresa"/>
+                </div>
+                </header>
+                <section>
+                <div class="ctn-user">
+                    <input 
+                      type="email" 
+                      class='input-username' 
+                      placeholder="Email or Username" 
+                      name='username'
+                      maxlength="30"
+                      id="id_username"
+                      required=""
+                      />
+                </div>
+                <div class="ctn-password-hide">
+                    <input 
+                      type="password" 
+                      class="input-password error" 
+                      placeholder="Password" 
+                      id='id-password' {% comment %} input-password {% endcomment %}
+                      autocomplete="current-password"
+                      required=""/>
+                    <p class="show-me" id='show-me'>show</p>
+                </div>
+                </section>
+                <footer>
+                <div class="ctn-help">
+                    <a href="#">Soporte  
+                    <img 
+                      src="{% static 'img/login/24hv1.png' %}" 
+                      width='20px' 
+                      height='20px' 
+                      alt='icono soporte'/>
+                    </a>
+                </div>
+                <div class="ctn-button">
+                    <button  type='submit'>Log in</button>
+                </div>
+                </footer>
+            </form>
+        </div>
+    </body>
 </html>
