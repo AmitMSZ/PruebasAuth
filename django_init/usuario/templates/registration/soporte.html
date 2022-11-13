@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/soporte/soporte.css' %}" />
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <div class="ctn-body">
+            <div class="ctn-soporte">
+                <div class="ctn-info">
+                    <section class="stn-one">
+                        <div class="ctn-titulo">
+                            <h1>MESA <br>
+                                DE <br>
+                                AYUDA</h1>
+                        </div>
+                        <div class="ctn-horario">
+                            <h2>Horario:</h2>
+                            <p>Lun a Dom</p>
+                        </div>
+                    </section>
+                    <section class="stn-two">
+                        <div class="ctn-option-help">
+                            <p class="p_one">• Apertura de Cuenta</p>
+                            <p class="p_two">LLamar a <strong>800 600 5528</strong></p> 
+                            <p class="p_three">• Recuperar Contraseña</p>
+                            <p class="p_four">LLamar a <strong>800 600 5527</strong></p>
+                            <p class="p_five">• Cuenta Bloqueada</p>
+                            <p class="p_six">LLamar a <strong>800 600 5526</strong></p>
+                        </div>
+                        <div class="ctn-email">
+                            <p class="p_seven">Email</p>
+                            <p class="email">mesadeayuda@miempresa.cl</p>
+                        </div>
+                        <a href="accounts/login/?next=/"><p class="volver">Log in</p></a>
+                        
+                    </section>
+                </div>
+                <img src="{% static 'img/soporte/call_center_r.png' %}" alt="" > <!-- style="width: 35vw; height: auto" -->
+            </div>
+            
+        </div>
+    </body>
+</html>
