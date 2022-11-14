@@ -8,7 +8,6 @@ window.addEventListener('load', function() {
 
     show.addEventListener("click", () => {
         console.log(getPassType)
-
         if (show.textContent === 'show') {
             show.textContent = 'hide'
             getPassType.setAttribute('type', 'text')

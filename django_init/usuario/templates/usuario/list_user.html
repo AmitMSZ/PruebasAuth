@@ -1,0 +1,25 @@
+{% extends 'usuario/base.html' %} {% block content %}
+<h1>Esta es la vista de listar usuario</h1>
+<table class="table container">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Cargo</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in employee %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.last_name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.job }}</td>
+            <td>{{ i.username }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
