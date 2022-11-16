@@ -1,6 +1,15 @@
 {% extends 'usuario/base.html' %} {% block content %}
 <form action="" method="post">
-  {% load crispy_forms_tags %} {% csrf_token %} {{ form | crispy }}
-  <button type="submit" class="button">Enviar</button>
+  {% load crispy_forms_tags %}
+    {% csrf_token %}
+    {{ form | crispy }}
+  <button type="submit" class="button">
+      <span class="icon">
+      <i class='bx bxs-user-check'></i>
+      </span>
+      <span>
+      Crear Usuario
+      </span>
+  </button>
 </form>
-{{ mensaje }} {% endblock %}
+{% endblock %}
