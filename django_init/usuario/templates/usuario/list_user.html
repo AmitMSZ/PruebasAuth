@@ -20,8 +20,14 @@
             <td>{{ i.job }}</td>
             <td>{{ i.username }}</td>
             <td>
-                <button class="button is-success"><i class='bx bxs-message-square-edit'></i></button>
-                <button class="button is-danger"><i class='bx bxs-message-square-minus' ></i></button>
+                <form action="{% url 'edit_user' i.id %}" method="PUT">
+                    {% csrf_token %}
+                    <button class="button is-success"><i class='bx bxs-message-square-edit'></i></button>
+                </form>
+                <form action="{% url 'delete_user' i.id %}" method="GET">
+                    {% csrf_token %}
+                    <button class="button is-danger"><i class='bx bxs-message-square-minus' ></i></button>
+                </form>
             </td>
         </tr>
         {% endfor %}

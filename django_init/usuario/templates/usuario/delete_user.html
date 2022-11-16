@@ -1,14 +1,13 @@
 {% extends 'usuario/base.html' %} {% block content %}
 <form action="" method="POST">
-  {% load crispy_forms_tags %}
     {% csrf_token %}
-    {{ form | crispy }}
+    <h1>Esta seguro de eliminar "{{ employee }}"</h1>
   <button type="submit" class="button">
       <span class="icon">
       <i class='bx bxs-user-check'></i>
       </span>
       <span>
-      Editar Usuario
+      Eliminar Usuario
       </span>
   </button>
 </form>
