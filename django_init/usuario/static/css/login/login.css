@@ -34,6 +34,7 @@ a {
 .ctn-form form {
 	width: 100%;
 	height: 262px;
+	position: relative;
 }
 
 /* Header */
@@ -156,4 +157,14 @@ a {
 .ctn-form form footer .ctn-button button:hover {
 	background: #515a5a;
 }
+
+.message-error {
+	display: block;
+	position: absolute;
+	left: 18px;
+	font-size: 15px;
+	padding-top: 5px;
+	text-align: center;
+}
+
 

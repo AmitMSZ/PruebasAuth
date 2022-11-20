@@ -6,6 +6,14 @@ window.addEventListener('load', function() {
             show = form.querySelector(".show-me"), 
             getPassType = form.querySelector('.input-password');
 
+    const errorMessage = !document.getElementById("message-error");
+    console.log(errorMessage);
+    if (!errorMessage) {
+        setTimeout(()=>{
+            document.getElementById("message-error").style.display = "none";
+        }, 5000)
+    }
+
     show.addEventListener("click", () => {
         console.log(getPassType)
         if (show.textContent === 'show') {

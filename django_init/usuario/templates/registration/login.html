@@ -57,6 +57,11 @@
             <p class="show-me" id="show-me">show</p>
           </div>
         </section>
+        {% if form.errors %}
+          {% if not user.is_authenticated %}
+            <span id="message-error" class="message-error"><strong>Credenciales inválidas</strong></span>
+          {% endif %}
+        {% endif %}
         <footer>
           <div class="ctn-help">
             <a href="/soporte"
