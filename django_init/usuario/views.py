@@ -82,7 +82,7 @@ def add_job(request):
             form.save()
         else:
             data["form"] = form
-    return render(request, 'usuario/add_user.html', data)
+    return render(request, 'usuario/add_job.html', data)
 
 
 @login_required
@@ -96,7 +96,7 @@ def edit_job(request, pk):
     elif request.method == 'PUT':
         form = JobForm(request.PUT, instance=job)
     data = {'form': form}
-    return render(request, 'usuario/edit_user.html', data)
+    return render(request, 'usuario/edit_job.html', data)
 
 
 @login_required
@@ -104,8 +104,8 @@ def delete_job(request, pk):
     job = Job.objects.get(id=pk)
     if request.method == "POST":
         job.delete()
-    data = {'employee': job}
-    return render(request, 'usuario/delete_user.html', data)
+    data = {'job': job}
+    return render(request, 'usuario/delete_job.html', data)
 
 
 @login_required
