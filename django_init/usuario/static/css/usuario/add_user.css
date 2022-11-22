@@ -1,0 +1,28 @@
+
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    flex-wrap: wrap;
+    border: thin solid #ffffff;
+    padding: 20px;
+    background-color: #ffffff;
+    width: 50%;
+    border-radius: 5% 0;
+}
+
+.field {
+    width: 48%
+}
+
+.button {
+    flex: auto;
+    align-items: flex-end;
+    background-color: #515a5a;
+}
+
+button {
+    background-color: #515a5a;
+    border-radius: 0 0 5% 0;
+}

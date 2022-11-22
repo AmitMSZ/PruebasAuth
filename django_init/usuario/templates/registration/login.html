@@ -57,6 +57,10 @@
             <p class="show-me" id="show-me">show</p>
           </div>
         </section>
+        {% comment %}     {% if form.get_invalid_login_error %}
+            <strong id="message-error" class="message-error">Usuario no existe.</strong>
+        {% endif %} {% endcomment %}
+        
         {% if form.errors %}
           {% if not user.is_authenticated %}
             <span id="message-error" class="message-error"><strong>Credenciales inválidas</strong></span>

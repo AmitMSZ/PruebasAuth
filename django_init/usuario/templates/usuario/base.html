@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Base CSS -->
     <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+    {% block css %}
+    {% endblock css %}
     <!-- Bulma CSS -->
     <link
       rel="stylesheet"
@@ -25,7 +27,7 @@
       <header>
         <div class="image-text">
           <a class="image" href="/">
-            <img src="{% static 'img/NASA_logo.png' %}" alt="" />
+            <img src="{% static 'img/login/logo.png' %}" alt="" />
           </a>
           <div class="text logo-text">
             <span class="name">{{user.name}}</span>
@@ -52,17 +54,26 @@
             </li>
 
             <li class="nav-link">
+              <a href="/add_jobs">
+                <i class="bx bx-user-plus icon"></i>
+                <span class="text nav-text">Agregar Cargo</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
               <a href="/list_user">
                 <i class="bx bx-list-ul icon"></i>
                 <span class="text nav-text">Lista de Usuarios</span>
               </a>
             </li>
+
             <li class="nav-link">
-              <a href="#">
-                <i class="bx bx-pie-chart-alt icon"></i>
-                <span class="text nav-text">Analytics</span>
+              <a href="/list_jobs">
+                <i class="bx bx-list-ul icon"></i>
+                <span class="text nav-text">Lista de Cargos</span>
               </a>
             </li>
+
           </ul>
         </div>
 
@@ -79,7 +90,7 @@
     <!-- End Sidebar -->
 
     <!-- Block Content-->
-    <section class="home container">{% block content %} {% endblock %}</section>
+    <section class="home">{% block content %} {% endblock %}</section>
     <!-- End Block Content-->
     <script>
       const body = document.querySelector("body"),
@@ -87,7 +98,8 @@
         toggle = body.querySelector(".toggle"),
         searchBtn = body.querySelector(".search-box"),
         modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
+        modeText = body.querySelector(".mode-text"),
+        home = body.querySelector(".home");
 
       toggle.addEventListener("click", () => {
         sidebar.classList.toggle("close");

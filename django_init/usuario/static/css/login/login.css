@@ -76,9 +76,6 @@ a {
 	padding: 15px 0 15px 20px
 }
 
-.ctn-form form section .ctn-password-hide .error::placeholder {
-}
-
 .ctn-form form section .ctn-user .input-username, 
 .ctn-form form section .ctn-password-hide .input-password {
 	height: 100%;
@@ -160,7 +157,6 @@ a {
 
 .message-error {
 	display: block;
-	position: absolute;
 	left: 18px;
 	font-size: 15px;
 	padding-top: 5px;

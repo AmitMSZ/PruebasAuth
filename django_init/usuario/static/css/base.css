@@ -1,7 +1,7 @@
 
 /* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,12 +10,12 @@
 
 :root{
     /* ===== Colors ===== */
-    --body-color: #E4E9F7;
+    --body-color: #f0f0f0;
     --sidebar-color: #FFF;
-    --primary-color: #695CFE;
+    --primary-color: #ec7225;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
-    --text-color: #707070;
+    --text-color: #515a5a;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -25,7 +25,9 @@
 }
 
 body{
-    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh; 
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
@@ -41,13 +43,15 @@ body{
     top: 0;
     left: 0;
     height: 100%;
-    width: 250px;
+    width: 250px;  /* 250 px*/
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
-    z-index: 100;  
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px  
 }
-.sidebar.close{
+
+.sidebar.close {
     width: 88px;
 }
 
@@ -235,7 +239,7 @@ body.dark .sidebar li a:hover .text{
     min-width: 60px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
     border-radius: 6px;
     cursor: pointer;
 }
@@ -262,26 +266,41 @@ body.dark .sidebar li a:hover .text{
 }
 
 
-.home{
-    position: absolute;
+/* .home{
+    position: absolute; 
     top: 0;
-    top: 0;
-    left: 250px;
+    left: 250px; 
     height: 100vh;
-    width: calc(100% - 250px);
+    width: calc(100%-250px); 
     background-color: var(--body-color);
     transition: var(--tran-05);
-    margin: 15px;
-}
-.home .text{
-    font-size: 30px;
+} */
+
+
+
+
+/* .home .text{
+    font-size: 15px;
     font-weight: 500;
     color: var(--text-color);
     padding: 12px 60px;
+} */
+
+/* .sidebar.close ~ .home{
+    left: 88px; 78px 
+    height: 100vh;
+    width: calc(100% - 88px); 78 px
+} */
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 88px;
+    width: calc(100% - 88px);
 }
 
-.sidebar.close ~ .home{
-    left: 78px;
-    height: 100vh;
-    width: calc(100% - 78px);
+.text .home{
+    color: var(--text-color);
 }
