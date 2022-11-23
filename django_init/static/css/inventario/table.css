@@ -20,11 +20,9 @@ gris claro = #f2f1ef
     border-collapse: collapse;
 }
 
-.list_list_product {
-    width: 100%;
+.list_product {
+    width: 80%;
 }
-
-
 
 .list_type {
     width: 20vw;
@@ -33,7 +31,6 @@ gris claro = #f2f1ef
 .list_warehouse {
     width: 20vw;
 }
-
 
 
 thead>tr>th, tbody>tr>td {

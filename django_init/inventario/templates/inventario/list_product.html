@@ -21,19 +21,19 @@
     <tr>
       <td class="row_selection">{{ i.product_name }}</td>
       <td class="row_selection">{{ i.type }}</td>
-      <td class="row_selection">{{ i.product_description }}</td>
+      <td class="row_selection col_three">{{ i.product_description }}</td>
       <td class="row_selection">{{ i.product_stock }}</td>
       <td class="row_selection">{{ i.warehouse }}</td>
       <td class="options">
         <form action="{% url 'edit_product' i.product_id %}" method="PUT">
           {% csrf_token %}
-          <button class="button">
+          <button class="button is-link is-outlined">
             <i class="bx bxs-message-square-edit"></i>
           </button>
         </form>
         <form action="{% url 'delete_product' i.product_id %}" method="GET">
           {% csrf_token %}
-          <button class="button">
+          <button class="button is-danger is-outlined">
             <i class='bx bxs-message-square-x'></i>
           </button>
         </form>

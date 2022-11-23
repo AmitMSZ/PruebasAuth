@@ -1,0 +1,20 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    border: thin solid #ffffff;
+    padding: 20px;
+    background-color: #ffffff;
+    width: 25vw;
+    border-radius: 5% 0;
+}
+
+.field {
+    width: 100%
+}
+
+.button {
+    margin-top: 15px;
+    width: 100%;
+}

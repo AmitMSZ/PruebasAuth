@@ -1,15 +1,10 @@
-<<<<<<< HEAD
 {% extends 'usuario/base.html' %} 
 {% load static %}
 {% block css %} 
-    <link href="{% static 'css/inventario/table.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/usuario/table.css' %}" rel="stylesheet" />
 {% endblock css%}
 {% block content %}
-=======
-{% extends 'usuario/base.html' %} {% load static %} {% block css %}
-<link href="{% static 'css/usuario/table.css' %}" rel="stylesheet" />
-{% endblock css%} {% block content %}
->>>>>>> 88fff171aa6d967670dd985352938a54bfa4885b
+
 <table class="list_job">
   <thead>
     <tr>
@@ -24,23 +19,14 @@
       <td class="options">
         <form action="{% url 'edit_job' i.id %}" method="PUT">
           {% csrf_token %}
-<<<<<<< HEAD
-          <button class="button">
-=======
           <button class="button is-link is-outlined">
->>>>>>> 88fff171aa6d967670dd985352938a54bfa4885b
             <i class="bx bxs-message-square-edit"></i>
           </button>
         </form>
         <form action="{% url 'delete_job' i.id %}" method="GET">
           {% csrf_token %}
-<<<<<<< HEAD
-          <button class="button">
-            <i class='bx bxs-message-square-x'></i>
-=======
           <button class="button is-danger is-outlined">
-            <i class="bx bxs-message-square-x"></i>
->>>>>>> 88fff171aa6d967670dd985352938a54bfa4885b
+            <i class='bx bxs-message-square-x'></i>
           </button>
         </form>
       </td>
