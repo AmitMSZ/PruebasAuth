@@ -44,6 +44,7 @@
             <input type="text" placeholder="Search..." />
           </li>
 
+          <!-- Usuario -->
           <ul class="menu-links">
             <li class="nav-link">
               <a href="/add_user">
@@ -53,20 +54,18 @@
             </li>
 
             <li class="nav-link">
-              <a href="/add_job">
-<<<<<<< HEAD
-                <i class="bx bx-user-plus icon"></i>
-=======
-                <i class="bx bx-first-aid icon"></i>
->>>>>>> c9eea076670a34174d5c73ee8fab3e299cd943cc
-                <span class="text nav-text">Agregar Cargo</span>
-              </a>
-            </li>
-
-            <li class="nav-link">
               <a href="/list_user">
                 <i class="bx bx-list-ul icon"></i>
                 <span class="text nav-text">Lista de Usuarios</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Cargo -->
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/add_job">
+                <i class="bx bx-first-aid icon"></i>
+                <span class="text nav-text">Agregar Cargo</span>
               </a>
             </li>
 
@@ -74,6 +73,54 @@
               <a href="/list_job">
                 <i class="bx bx-list-ul icon"></i>
                 <span class="text nav-text">Lista de Cargos</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Producto -->
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/add_product">
+                <i class="bx bx-layer-plus icon"></i>
+                <span class="text nav-text">Agregar Producto</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/list_product">
+                <i class="bx bx-list-ul icon"></i>
+                <span class="text nav-text">Lista de Productos</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Bodega -->
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/add_warehouse">
+                <i class="bx bx-book-add icon"></i>
+                <span class="text nav-text">Agregar Bodega</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/list_warehouse">
+                <i class="bx bx-list-ul icon"></i>
+                <span class="text nav-text">Lista de Bodegas</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Tipo -->
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/add_type">
+                <i class="bx bx-bookmark-alt-plus icon"></i>
+                <span class="text nav-text">Agregar Tipo</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/list_type">
+                <i class="bx bx-list-ul icon"></i>
+                <span class="text nav-text">Lista de Tipos</span>
               </a>
             </li>
           </ul>
@@ -110,7 +157,6 @@
       searchBtn.addEventListener("click", () => {
         sidebar.classList.remove("close");
       });
-      
     </script>
   </body>
 </html>
