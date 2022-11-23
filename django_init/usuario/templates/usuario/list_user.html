@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'usuario/base.html' %} 
 {% load static %}
 {% block css %} 
@@ -36,5 +37,47 @@
         </tr>
         {% endfor %}
     </tbody>
+=======
+{% extends 'usuario/base.html' %} {% load static %} {% block css %}
+<link href="{% static 'css/usuario/table.css' %}" rel="stylesheet" />
+{% endblock css%} {% block content %}
+<table class="list_user">
+  {% comment %} table container {% endcomment %}
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Cargo</th>
+      <th>Usuario</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in employee %}
+    <tr>
+      <td class="row_selection">{{ i.name }}</td>
+      <td class="row_selection">{{ i.last_name }}</td>
+      <td class="row_selection">{{ i.email }}</td>
+      <td class="row_selection">{{ i.job }}</td>
+      <td class="row_selection">{{ i.username }}</td>
+      <td class="options">
+        <form action="{% url 'edit_user' i.id %}" method="PUT">
+          {% csrf_token %}
+          <button class="button is-link is-outlined">
+            <i class="bx bxs-message-square-edit"></i>
+          </button>
+        </form>
+        <form action="{% url 'delete_user' i.id %}" method="GET">
+          {% csrf_token %}
+          <button class="button is-danger is-outlined">
+            <i class="bx bxs-message-square-x"></i>
+          </button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+>>>>>>> 88fff171aa6d967670dd985352938a54bfa4885b
 </table>
 {% endblock %}
