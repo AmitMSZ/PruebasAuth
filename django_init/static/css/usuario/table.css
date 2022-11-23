@@ -13,7 +13,7 @@ gris claro = #f2f1ef
     justify-content: space-evenly;
 }
 
-.list_user, .list_job  {
+.list_user, .list_job {
     background-color: #ffffff;
     margin: 0;
     height: auto;

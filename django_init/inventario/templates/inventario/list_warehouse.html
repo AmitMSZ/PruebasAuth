@@ -1,26 +1,31 @@
-{% extends 'usuario/base.html' %} {% block content %}
-<h1>Esta es la vista de listar bodegas</h1>
-<table class="table container">
+{% extends 'usuario/base.html' %} 
+{% load static %}
+{% block css %} 
+    <link href="{% static 'css/inventario/table.css' %}" rel="stylesheet" />
+{% endblock css%}
+{% block content %}
+<table class="list_warehouse">
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Opciones</th>
     </tr>
   </thead>
   <tbody>
     {% for i in warehouse %}
     <tr>
-      <td>{{ i.warehouse_name }}</td>
-      <td>
+      <td class="row_selection">{{ i.warehouse_name }}</td>
+      <td class="options">
         <form action="{% url 'edit_warehouse' i.warehouse_id %}" method="PUT">
           {% csrf_token %}
-          <button class="button is-success">
+          <button class="button">
             <i class="bx bxs-message-square-edit"></i>
           </button>
         </form>
         <form action="{% url 'delete_warehouse' i.warehouse_id %}" method="GET">
           {% csrf_token %}
-          <button class="button is-danger">
-            <i class="bx bxs-message-square-minus"></i>
+          <button class="button">
+            <i class='bx bxs-message-square-x'></i>
           </button>
         </form>
       </td>

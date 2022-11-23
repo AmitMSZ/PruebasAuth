@@ -1,7 +1,7 @@
 {% extends 'usuario/base.html' %} 
 {% load static %}
 {% block css %} 
-    <link href="{% static 'css/usuario/table.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/inventario/table.css' %}" rel="stylesheet" />
 {% endblock css%}
 {% block content %}
 <table class="list_job">
@@ -18,14 +18,14 @@
       <td class="options">
         <form action="{% url 'edit_job' i.id %}" method="PUT">
           {% csrf_token %}
-          <button class="button is-success">
+          <button class="button">
             <i class="bx bxs-message-square-edit"></i>
           </button>
         </form>
         <form action="{% url 'delete_job' i.id %}" method="GET">
           {% csrf_token %}
-          <button class="button is-danger">
-            <i class="bx bxs-message-square-minus"></i>
+          <button class="button">
+            <i class='bx bxs-message-square-x'></i>
           </button>
         </form>
       </td>
