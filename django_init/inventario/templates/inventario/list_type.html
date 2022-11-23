@@ -1,0 +1,31 @@
+{% extends 'usuario/base.html' %} {% block content %}
+<h1>Esta es la vista de listar tipos</h1>
+<table class="table container">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in type %}
+    <tr>
+      <td>{{ i.type_name }}</td>
+      <td>
+        <form action="{% url 'edit_type' i.type_id %}" method="PUT">
+          {% csrf_token %}
+          <button class="button is-success">
+            <i class="bx bxs-message-square-edit"></i>
+          </button>
+        </form>
+        <form action="{% url 'delete_type' i.type_id %}" method="GET">
+          {% csrf_token %}
+          <button class="button is-danger">
+            <i class="bx bxs-message-square-minus"></i>
+          </button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

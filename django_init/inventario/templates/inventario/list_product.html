@@ -1,0 +1,40 @@
+{% extends 'usuario/base.html' %} {% block content %}
+<h1>Esta es la vista de listar producto</h1>
+<table class="table container">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Descripción</th>
+      <th>Stock</th>
+      <th>Bodega</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in product %}
+    <tr>
+      <td>{{ i.product_name }}</td>
+      <td>{{ i.product_type }}</td>
+      <td>{{ i.product_description }}</td>
+      <td>{{ i.product_stock }}</td>
+      <td>{{ i.warehouse }}</td>
+      <td>
+        <form action="{% url 'edit_product' i.product_id %}" method="PUT">
+          {% csrf_token %}
+          <button class="button is-success">
+            <i class="bx bxs-message-square-edit"></i>
+          </button>
+        </form>
+        <form action="{% url 'delete_product' i.product_id %}" method="GET">
+          {% csrf_token %}
+          <button class="button is-danger">
+            <i class="bx bxs-message-square-minus"></i>
+          </button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
