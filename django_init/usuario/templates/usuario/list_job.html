@@ -1,6 +1,10 @@
-{% extends 'usuario/base.html' %} {% block content %}
-<h1>Esta es la vista de listar Cargo</h1>
-<table class="table container">
+{% extends 'usuario/base.html' %} 
+{% load static %}
+{% block css %} 
+    <link href="{% static 'css/usuario/table.css' %}" rel="stylesheet" />
+{% endblock css%}
+{% block content %}
+<table class="list_job">
   <thead>
     <tr>
       <th>Nombre del cargo</th>
@@ -10,8 +14,8 @@
   <tbody>
     {% for i in job %}
     <tr>
-      <td>{{ i.job }}</td>
-      <td>
+      <td class="row_selection">{{ i.job }}</td>
+      <td class="options">
         <form action="{% url 'edit_job' i.id %}" method="PUT">
           {% csrf_token %}
           <button class="button is-success">

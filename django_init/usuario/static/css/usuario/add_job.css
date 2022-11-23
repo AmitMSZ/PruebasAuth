@@ -1,22 +1,20 @@
-
-
 form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items:flex-start;
-    flex-wrap: wrap;
     border: thin solid #ffffff;
     padding: 20px;
     background-color: #ffffff;
-    width: 50%;
+    width: 25vw;
     border-radius: 5% 0;
 }
 
 .field {
-    width: 48%
+    width: 100%
 }
 
 .button {
-    flex: auto;
-    align-items: flex-end;
+    width: 100%;
 }
+

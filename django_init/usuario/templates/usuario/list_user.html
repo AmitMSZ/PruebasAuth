@@ -1,6 +1,10 @@
-{% extends 'usuario/base.html' %} {% block content %}
-<h1>Esta es la vista de listar usuario</h1>
-<table class="table container">
+{% extends 'usuario/base.html' %} 
+{% load static %}
+{% block css %} 
+    <link href="{% static 'css/usuario/table.css' %}" rel="stylesheet" />
+{% endblock css%}
+{% block content %}
+<table class="list_user"> {% comment %} table container {% endcomment %}
     <thead>
         <tr>
             <th>Nombre</th>
@@ -14,12 +18,12 @@
     <tbody>
         {% for i in employee %}
         <tr>
-            <td>{{ i.name }}</td>
-            <td>{{ i.last_name }}</td>
-            <td>{{ i.email }}</td>
-            <td>{{ i.job }}</td>
-            <td>{{ i.username }}</td>
-            <td>
+            <td class="row_selection">{{ i.name }}</td>
+            <td class="row_selection">{{ i.last_name }}</td>
+            <td class="row_selection">{{ i.email }}</td>
+            <td class="row_selection">{{ i.job }}</td>
+            <td class="row_selection">{{ i.username }}</td>
+            <td class="options">
                 <form action="{% url 'edit_user' i.id %}" method="PUT">
                     {% csrf_token %}
                     <button class="button is-success"><i class='bx bxs-message-square-edit'></i></button>

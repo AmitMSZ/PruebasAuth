@@ -1,0 +1,56 @@
+/* 
+
+naranjo = #ec7225
+gris oscuro = #515a5a
+gris claro = #f2f1ef
+
+
+*/
+
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.list_user, .list_job  {
+    background-color: #ffffff;
+    margin: 0;
+    height: auto;
+    border-collapse: collapse;
+}
+
+.list_user {
+    width: 65vw;
+}
+
+.list_job {
+    width: 25vw;
+}
+
+
+thead>tr>th, tbody>tr>td {
+    padding: 12px;
+}
+
+thead>tr>th {
+    color: #ffffff;
+}
+
+tbody>tr>td {
+    font-size: 100%;
+}
+
+thead {
+    background-color: #515a5a;
+    border-bottom: solid 5px #f0f0f0;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+tr:hover .row_selection {
+    background-color: #ec7225;
+    color: #ffffff;
+}
