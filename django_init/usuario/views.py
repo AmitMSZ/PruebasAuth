@@ -12,14 +12,16 @@ def soporte(request):
     return render(request, 'registration/soporte.html')
 
 
-def login(request):
-    if request.user.is_authenticated():
-        return redirect("/")
+# def login(request):
+#   if request.user.is_authenticated():
+#        return redirect("/")
 
 
 # CRUD Usuarios
 @login_required
 def home(request):
+    #    if request.user.employee.job == '':
+    #        print(request.user.employee.job)
     return render(request, 'usuario/home.html')
 
 

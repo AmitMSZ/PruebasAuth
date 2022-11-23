@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Base CSS -->
     <link href="{% static 'css/base.css' %}" rel="stylesheet" />
-    {% block css %}
-    {% endblock css %}
+    {% block css %} {% endblock css %}
     <!-- Bulma CSS -->
     <link
       rel="stylesheet"
@@ -31,7 +30,7 @@
           </a>
           <div class="text logo-text">
             <span class="name">{{user.name}}</span>
-            <span class="profession">{{user.last_name}}</span>
+            <span class="profession">{{user.employee.job}}</span>
           </div>
         </div>
 
@@ -54,8 +53,8 @@
             </li>
 
             <li class="nav-link">
-              <a href="/add_jobs">
-                <i class="bx bx-user-plus icon"></i>
+              <a href="/add_job">
+                <i class="bx bx-first-aid icon"></i>
                 <span class="text nav-text">Agregar Cargo</span>
               </a>
             </li>
@@ -68,12 +67,11 @@
             </li>
 
             <li class="nav-link">
-              <a href="/list_jobs">
+              <a href="/list_job">
                 <i class="bx bx-list-ul icon"></i>
                 <span class="text nav-text">Lista de Cargos</span>
               </a>
             </li>
-
           </ul>
         </div>
 

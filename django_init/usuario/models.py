@@ -42,7 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     username = models.CharField(
         'Nombre de usuario', unique=True, max_length=30)
-    password = models.CharField('Contraseña', max_length=25)
+    password = models.CharField('Contraseña', max_length=128)
     name = models.CharField('Nombre', max_length=30)
     last_name = models.CharField('Apellido', max_length=70)
     email = models.EmailField('Correo Electronico', max_length=50, unique=True)

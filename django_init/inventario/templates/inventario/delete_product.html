@@ -1,0 +1,12 @@
+{% extends 'usuario/base.html' %} {% block content %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <h1>Esta seguro de eliminar "{{ product }}"</h1>
+  <button type="submit" class="button">
+    <span class="icon">
+      <i class="bx bxs-user-check"></i>
+    </span>
+    <span> Eliminar Producto </span>
+  </button>
+</form>
+{% endblock %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "usuario",
     "crispy_forms",
     "crispy_bulma",
+    "inventario",
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = ("bulma",)
 CRISPY_TEMPLATE_PACK = "bulma"
