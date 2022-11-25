@@ -79,7 +79,7 @@ def list_user(request):
             Q(last_name__icontains = search) |
             Q(username__icontains = search) |
             Q(email__icontains = search) 
-        )
+        ).distinct()
 
     data = {
         'employee': employee

@@ -167,8 +167,9 @@ def list_product(request):
     # check el filtro sobre una llave foranea
     if search:
         product = Product.objects.filter (
-            Q(product_name__icontains = search) 
-        )
+            Q(product_name__icontains = search) |
+            Q(product_description__icontains = search) 
+        ).distinct()
 
     data = {
         'product': product
