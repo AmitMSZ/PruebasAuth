@@ -1,16 +1,35 @@
-{% extends 'usuario/base.html' %} 
-{% load static %}
-{% block css %} 
-    <link href="{% static '/css/inventario/edit_product.css' %}" rel="stylesheet" />
-{% endblock css%}
-{% block content %}
-<form action="" method="POST">
-  {% load crispy_forms_tags %} {% csrf_token %} {{ form | crispy }}
+{% extends 'usuario/base.html' %} {% load static %} {% block css %}
+<link href="{% static '/css/inventario/edit_product.css' %}" rel="stylesheet" />
+{% endblock css%} {% block content %}
+<form class='form' action="" method="POST">
+  {% load crispy_forms_tags %} 
+  {% csrf_token %} 
+
+
+  {% if user.employee.job|slugify == 'jefe-de-bodega' %}
+  {{ form | crispy }}
+  {% endif %}
+
+
+
+
+  {% if user.employee.job|slugify == 'bodeguero' %}
+  {% for f in form %}
+  <h1 style="display: none;">
+    {{f}}
+  </h1>
+  {% if f == form.warehouse %}
+  {{ form.warehouse | as_crispy_field }}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+
   <button type="submit" class="button">
     <span class="icon">
       <i class="bx bxs-user-check"></i>
     </span>
-    <span> Editar Producto </span>
+    <span> Editar {{ context }} </span>
   </button>
 </form>
 {% endblock %}

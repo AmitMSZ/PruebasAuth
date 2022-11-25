@@ -1,16 +1,13 @@
-{% extends 'usuario/base.html' %} 
-{% load static %}
-{% block css %} 
-    <link href="{% static '/css/inventario/add_product.css' %}" rel="stylesheet" />
-{% endblock css%}
-{% block content %}
+{% extends 'usuario/base.html' %} {% load static %} {% block css %}
+<link href="{% static '/css/inventario/add_product.css' %}" rel="stylesheet" />
+{% endblock css%} {% block content %}
 <form action="" method="post" class="form">
   {% load crispy_forms_tags %} {% csrf_token %} {{ form | crispy }}
   <button type="submit" class="button">
     <span class="icon">
       <i class="bx bxs-user-check"></i>
     </span>
-    <span> Crear Producto </span>
+    <span> Crear {{ context }} </span>
   </button>
 </form>
 {% endblock %}

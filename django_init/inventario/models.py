@@ -6,7 +6,7 @@ from django.db import models
 class Warehouse(models.Model):
     warehouse_id = models.AutoField(primary_key=True)
     warehouse_name = models.CharField(
-        verbose_name='Nombre de Bodega', max_length=30)
+        verbose_name='Nombre de Bodega', max_length=30, unique=True)
 
     class Meta:
         db_table = 'warehouse'
@@ -20,7 +20,7 @@ class Warehouse(models.Model):
 class Type(models.Model):
     type_id = models.AutoField(primary_key=True)
     type_name = models.CharField(
-        verbose_name='Tipo de Producto', max_length=30)
+        verbose_name='Nombre de Tipo', max_length=30, unique=True)
 
     class Meta:
         db_table = 'type'
@@ -35,13 +35,13 @@ class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     product_name = models.CharField(
         verbose_name='Nombre de Producto', max_length=30)
-    product_description = models.CharField(
-        verbose_name='Descripción de Producto', max_length=254, null=True, blank=True)
+    product_description = models.TextField(
+        verbose_name='Descripción de Producto', null=True, blank=True)
     product_stock = models.IntegerField(verbose_name='Stock de Producto')
     type = models.ForeignKey(
-        Type, on_delete=models.PROTECT, null=True, blank=True)
+        Type, on_delete=models.PROTECT)
     warehouse = models.ForeignKey(
-        Warehouse, on_delete=models.PROTECT, null=True, blank=True)
+        Warehouse, on_delete=models.PROTECT)
 
     class Meta:
         db_table = 'product'

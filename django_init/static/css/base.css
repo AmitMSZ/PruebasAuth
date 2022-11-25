@@ -1,4 +1,3 @@
-
 /* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 * {
@@ -306,7 +305,7 @@ body.dark .sidebar li a:hover .text{
 }
 
 
-.tooltip-corner {
+/* .tooltip-corner {
     width: 15px;
     height: 15px;
     align-self: center;
@@ -327,13 +326,14 @@ body.dark .sidebar li a:hover .text{
     border-bottom-left-radius: 25px;
     position: absolute;
     z-index: 1;
-}
+} */
 
 
 .tooltip {
     display: flex;
     visibility: hidden;
-    left: 55px;
+    width: max-content;
+    left: 88px;
     position: absolute;
     z-index: 100;
     color: #fff;
@@ -344,7 +344,6 @@ body.dark .sidebar li a:hover .text{
 
 .tooltip-text {
     padding: 5px;
-    padding-right: 15px;
     background-color: #515a5a;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
@@ -353,8 +352,6 @@ body.dark .sidebar li a:hover .text{
 }
 
 .tooltip-text.special-corner {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     padding-right: 7px;

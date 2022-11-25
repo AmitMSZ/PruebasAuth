@@ -39,11 +39,15 @@
 
       <div class="menu-bar">
         <div class="menu">
-
           <form method="GET">
             <li class="search-box tooltip-trigger active">
               <i class="bx bx-search icon"></i>
-              <input type="text" placeholder="Search..."  name="search" value=""/>
+              <input
+                type="text"
+                placeholder="Search..."
+                name="search"
+                value=""
+              />
               <span id="tooltip-2" class="tooltip">
                 <span class="tooltip-corner"></span>
                 <span class="tooltip-corner-content"></span>
@@ -51,7 +55,7 @@
               </span>
             </li>
           </form>
-
+          {% with job=user.employee.job %} {% if job|slugify == 'administrador'%}
           <!-- Usuario -->
           <ul class="menu-links">
             <li class="nav-link tooltip-trigger active">
@@ -61,7 +65,9 @@
                 <span id="tooltip-2" class="tooltip">
                   <span class="tooltip-corner"></span>
                   <span class="tooltip-corner-content"></span>
-                  <span class="tooltip-text special-corner">Agregar usuario</span>
+                  <span class="tooltip-text special-corner"
+                    >Agregar usuario</span
+                  >
                 </span>
               </a>
             </li>
@@ -73,7 +79,9 @@
                 <span id="tooltip-2" class="tooltip">
                   <span class="tooltip-corner"></span>
                   <span class="tooltip-corner-content"></span>
-                  <span class="tooltip-text special-corner">Listar usuarios</span>
+                  <span class="tooltip-text special-corner"
+                    >Listar usuarios</span
+                  >
                 </span>
               </a>
             </li>
@@ -104,8 +112,11 @@
               </a>
             </li>
           </ul>
+          {% endif %} 
+          {% if job|slugify == 'jefe-de-bodega' or job|slugify == 'bodeguero' %}
           <!-- Producto -->
           <ul class="menu-links">
+          {% if job|slugify == 'jefe-de-bodega' %}
             <li class="nav-link tooltip-trigger active">
               <a href="/add_product">
                 <i class="bx bx-layer-plus icon"></i>
@@ -113,11 +124,13 @@
                 <span id="tooltip-2" class="tooltip">
                   <span class="tooltip-corner"></span>
                   <span class="tooltip-corner-content"></span>
-                  <span class="tooltip-text special-corner">Agregar producto</span>
+                  <span class="tooltip-text special-corner"
+                    >Agregar producto</span
+                  >
                 </span>
               </a>
             </li>
-
+          {% endif %}
             <li class="nav-link tooltip-trigger active">
               <a href="/list_product">
                 <i class="bx bx-list-ul icon"></i>
@@ -125,13 +138,16 @@
                 <span id="tooltip-2" class="tooltip">
                   <span class="tooltip-corner"></span>
                   <span class="tooltip-corner-content"></span>
-                  <span class="tooltip-text special-corner">Listar productos</span>
+                  <span class="tooltip-text special-corner"
+                    >Listar productos</span
+                  >
                 </span>
               </a>
             </li>
           </ul>
           <!-- Bodega -->
           <ul class="menu-links">
+          {% if job|slugify == 'jefe-de-bodega' %}
             <li class="nav-link tooltip-trigger active">
               <a href="/add_warehouse">
                 <i class="bx bx-book-add icon"></i>
@@ -139,11 +155,13 @@
                 <span id="tooltip-2" class="tooltip">
                   <span class="tooltip-corner"></span>
                   <span class="tooltip-corner-content"></span>
-                  <span class="tooltip-text special-corner">Agregar bodega</span>
+                  <span class="tooltip-text special-corner"
+                    >Agregar bodega</span
+                  >
                 </span>
               </a>
             </li>
-
+          {% endif %}
             <li class="nav-link tooltip-trigger active">
               <a href="/list_warehouse">
                 <i class="bx bx-list-ul icon"></i>
@@ -156,6 +174,7 @@
               </a>
             </li>
           </ul>
+          {% if job|slugify == 'jefe-de-bodega' %}
           <!-- Tipo -->
           <ul class="menu-links">
             <li class="nav-link tooltip-trigger active">
@@ -170,7 +189,7 @@
               </a>
             </li>
 
-            <li class="nav-link  tooltip-trigger active">
+            <li class="nav-link tooltip-trigger active">
               <a href="/list_type">
                 <i class="bx bx-list-ul icon"></i>
                 <span class="text nav-text">Lista de Tipos</span>
@@ -182,6 +201,9 @@
               </a>
             </li>
           </ul>
+          {% endif %}
+          {% endif %}
+          {% endwith %}
         </div>
 
         <div class="bottom-content">
@@ -215,21 +237,19 @@
 
       toggle.addEventListener("click", () => {
         sidebar.classList.toggle("close");
-        tooltip_toggles = document.querySelectorAll(".tooltip-trigger")
-        tooltip_toggles.forEach((trigger)=> {
-          if (trigger.classList.contains("active")){
-            trigger.classList.remove("active")
+        tooltip_toggles = document.querySelectorAll(".tooltip-trigger");
+        tooltip_toggles.forEach((trigger) => {
+          if (trigger.classList.contains("active")) {
+            trigger.classList.remove("active");
           } else {
-            trigger.classList.add("active")
+            trigger.classList.add("active");
           }
-        })
+        });
       });
 
       searchBtn.addEventListener("click", () => {
         sidebar.classList.remove("close");
       });
-
     </script>
   </body>
 </html>
-

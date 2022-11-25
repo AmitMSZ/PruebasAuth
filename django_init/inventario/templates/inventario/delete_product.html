@@ -1,17 +1,14 @@
-{% extends 'usuario/base.html' %} 
-{% load static %}
-{% block css %} 
-    <link href="{% static '/css/inventario/del_product.css' %}" rel="stylesheet" />
-{% endblock css%}
-{% block content %}
-<form action="" method="POST">
+{% extends 'usuario/base.html' %} {% load static %} {% block css %}
+<link href="{% static '/css/inventario/del_product.css' %}" rel="stylesheet" />
+{% endblock css%} {% block content %}
+<form class="form" action="" method="POST">
   {% csrf_token %}
   <h1>¿Esta seguro de eliminar "{{ product }}?"</h1>
   <button type="submit" class="button">
     <span class="icon">
       <i class="bx bxs-user-check"></i>
     </span>
-    <span> Eliminar Producto </span>
+    <span> Eliminar {{ context }} </span>
   </button>
 </form>
 {% endblock %}
