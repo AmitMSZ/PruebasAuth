@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Job, Employee
+from django.db.models import Q
+from .models import Job, Employee, User
 from .forms import EmployeeForm, JobForm
 
 # Create your views here.
@@ -66,7 +67,20 @@ def delete_user(request, pk):
 
 @login_required
 def list_user(request):
+
+    search = request.GET.get("search")
     employee = Employee.objects.all()
+
+    # lo que hace Q es buscar por cada atributo coincidencias con lo escrito en el buscador
+    
+    if search:
+        employee = Employee.objects.filter (
+            Q(name__icontains = search) |
+            Q(last_name__icontains = search) |
+            Q(username__icontains = search) |
+            Q(email__icontains = search) 
+        )
+
     data = {
         'employee': employee
     }
@@ -112,7 +126,16 @@ def delete_job(request, pk):
 
 @login_required
 def list_job(request):
+
+    search = request.GET.get("search")
     job = Job.objects.all()
+    
+
+    if search:
+        job = Job.objects.filter (
+            Q(job__icontains = search) 
+        )
+
     data = {
         'job': job
     }

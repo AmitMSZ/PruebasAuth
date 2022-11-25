@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from .models import Warehouse, Type, Product
 from .forms import WarehouseForm, TypeForm, ProductForm
 
@@ -47,7 +48,14 @@ def delete_warehouse(request, pk):
 
 @login_required
 def list_warehouse(request):
+    search = request.GET.get("search")
     warehouse = Warehouse.objects.all()
+
+    if search:
+        warehouse = Warehouse.objects.filter (
+            Q(warehouse_name__icontains = search)
+        )
+
     data = {
         'warehouse': warehouse
     }
@@ -95,10 +103,20 @@ def delete_type(request, pk):
 
 @login_required
 def list_type(request):
+
+    search = request.GET.get("search")
     type = Type.objects.all()
+
+    if search:
+        type = Type.objects.filter(
+            Q(type_name__icontains = search) 
+        )
+
     data = {
         'type': type
     }
+
+
     return render(request, 'inventario/list_type.html', data)
 
 
@@ -143,7 +161,15 @@ def delete_product(request, pk):
 
 @login_required
 def list_product(request):
+
+    search = request.GET.get("search")
     product = Product.objects.all()
+    # check el filtro sobre una llave foranea
+    if search:
+        product = Product.objects.filter (
+            Q(product_name__icontains = search) 
+        )
+
     data = {
         'product': product
     }
