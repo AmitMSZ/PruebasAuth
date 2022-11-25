@@ -304,3 +304,66 @@ body.dark .sidebar li a:hover .text{
 .text .home{
     color: var(--text-color);
 }
+
+
+.tooltip-corner {
+    width: 15px;
+    height: 15px;
+    align-self: center;
+    background-color: #515a5a;
+    padding: 5px;
+    transform: rotate(45deg);
+    position: relative;
+
+}
+
+.tooltip-corner-content {
+    width: 18px;
+    height: 31px;
+    margin-left: 3px;
+    align-self: center;
+    background-color: #515a5a;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+.tooltip {
+    display: flex;
+    visibility: hidden;
+    left: 55px;
+    position: absolute;
+    z-index: 100;
+    color: #fff;
+    padding: 5px 8px 5px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.tooltip-text {
+    padding: 5px;
+    padding-right: 15px;
+    background-color: #515a5a;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    z-index: 2;
+    text-align: center;
+}
+
+.tooltip-text.special-corner {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-right: 7px;
+}
+
+.tooltip-trigger:hover .tooltip {
+    
+}
+
+.tooltip-trigger.active:hover .tooltip{
+    visibility: visible;
+}
