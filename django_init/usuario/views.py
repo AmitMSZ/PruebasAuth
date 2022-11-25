@@ -35,6 +35,7 @@ def add_user(request):
             form = EmployeeForm(data=request.POST)
             if form.is_valid():
                 form.save()
+                return redirect('/list_user/')
             else:
                 data["form"] = form
         return render(request, 'usuario/add_user.html', data)
@@ -106,6 +107,7 @@ def add_job(request):
             form = JobForm(data=request.POST)
             if form.is_valid():
                 form.save()
+                return redirect('/list_job/')
             else:
                 data["form"] = form
         return render(request, 'usuario/add_job.html', data)
@@ -122,6 +124,7 @@ def edit_job(request, pk):
             form = JobForm(request.POST, instance=job)
             if form.is_valid():
                 form.save()
+                return redirect('/list_job/')
         elif request.method == 'PUT':
             form = JobForm(request.PUT, instance=job)
         data = {'form': form}
@@ -136,6 +139,7 @@ def delete_job(request, pk):
         job = Job.objects.get(id=pk)
         if request.method == "POST":
             job.delete()
+            return redirect('/list_job/')
         data = {'job': job}
         return render(request, 'usuario/delete_job.html', data)
     return redirect('/')

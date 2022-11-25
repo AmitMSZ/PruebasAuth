@@ -21,6 +21,7 @@ def add_warehouse(request):
             form = WarehouseForm(data=request.POST)
             if form.is_valid():
                 form.save()
+                return redirect('/list_warehouse/')
             else:
                 data["form"] = form
         return render(request, 'inventario/add_product.html', data)
@@ -37,6 +38,7 @@ def edit_warehouse(request, pk):
             form = WarehouseForm(request.POST, instance=warehouse)
             if form.is_valid():
                 form.save()
+                return redirect('/list_warehouse/')
         elif request.method == 'PUT':
             form = WarehouseForm(request.PUT, instance=warehouse)
         data = {'form': form,
@@ -53,6 +55,7 @@ def delete_warehouse(request, pk):
         warehouse = Warehouse.objects.get(warehouse_id=pk)
         if request.method == "POST":
             warehouse.delete()
+            return redirect('/list_warehouse/')
         data = {'product': warehouse,
                 'context': 'Bodega'
                 }
@@ -93,6 +96,7 @@ def add_type(request):
             form = TypeForm(data=request.POST)
             if form.is_valid():
                 form.save()
+                return redirect('/list_type/')
             else:
                 data["form"] = form
         return render(request, 'inventario/add_product.html', data)
@@ -109,6 +113,7 @@ def edit_type(request, pk):
             form = TypeForm(request.POST, instance=type)
             if form.is_valid():
                 form.save()
+                return redirect('/list_type/')
         elif request.method == 'PUT':
             form = TypeForm(request.PUT, instance=type)
         data = {'form': form,
@@ -125,6 +130,7 @@ def delete_type(request, pk):
         type = Type.objects.get(type_id=pk)
         if request.method == "POST":
             type.delete()
+            return redirect('/list_type/')
         data = {'product': type,
                 'context': 'Tipo'
                 }
@@ -166,6 +172,7 @@ def add_product(request):
             form = ProductForm(data=request.POST)
             if form.is_valid():
                 form.save()
+                return redirect('/list_product/')
             else:
                 data["form"] = form
         return render(request, 'inventario/add_product.html', data)
@@ -182,6 +189,7 @@ def edit_product(request, pk):
             form = ProductForm(request.POST, instance=product)
             if form.is_valid():
                 form.save()
+                return redirect('/list_product/')
         elif request.method == 'PUT':
             form = ProductForm(request.PUT, instance=product)
         data = {'form': form,
@@ -198,6 +206,7 @@ def delete_product(request, pk):
         product = Product.objects.get(product_id=pk)
         if request.method == "POST":
             product.delete()
+            return redirect('/list_product/')
         data = {'product': product,
                 'context': 'Producto'
                 }

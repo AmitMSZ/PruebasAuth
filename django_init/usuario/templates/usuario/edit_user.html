@@ -1,20 +1,13 @@
-{% extends 'usuario/base.html' %} 
-{% load static %}
-{% block css %} 
-    <link href="{% static 'css/usuario/edit_user.css' %}" rel="stylesheet" />
-{% endblock css%}
-{% block content %}
-<form action="" method="POST">
-  {% load crispy_forms_tags %}
-    {% csrf_token %}
-    {{ form | crispy }}
+{% extends 'usuario/base.html' %} {% load static %} {% block css %}
+<link href="{% static 'css/usuario/edit_user.css' %}" rel="stylesheet" />
+{% endblock css%} {% block content %}
+<form action="" class="form" method="POST">
+  {% load crispy_forms_tags %} {% csrf_token %} {{ form | crispy }}
   <button type="submit" class="button">
-      <span class="icon">
-      <i class='bx bxs-user-check'></i>
-      </span>
-      <span>
-      Editar Usuario
-      </span>
+    <span class="icon">
+      <i class="bx bxs-user-check"></i>
+    </span>
+    <span> Editar Usuario </span>
   </button>
 </form>
 {% endblock %}
