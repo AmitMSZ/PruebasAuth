@@ -1,11 +1,13 @@
 
 {% extends 'usuario/base.html' %} 
 {% load static %}
+
 {% block css %} 
     <link href="{% static '/css/usuario/add_user.css' %}" rel="stylesheet" />
 {% endblock css%}
+
 {% block content %}
-<form action="" method="post">
+<form  class="form" action="" method="post">
   {% load crispy_forms_tags %}
     {% csrf_token %}
     {{ form | crispy }}
