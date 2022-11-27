@@ -34,7 +34,7 @@ class Type(models.Model):
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     product_name = models.CharField(
-        verbose_name='Nombre de Producto', max_length=30)
+        verbose_name='Nombre de Producto', max_length=30, unique=True)
     product_description = models.TextField(
         verbose_name='Descripción de Producto', null=True, blank=True)
     product_stock = models.IntegerField(verbose_name='Stock de Producto')

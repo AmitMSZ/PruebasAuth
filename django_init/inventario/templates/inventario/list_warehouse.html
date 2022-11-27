@@ -1,20 +1,20 @@
-{% extends 'usuario/base.html' %} 
-{% load static %}
-{% block css %} 
-    <link href="{% static 'css/inventario/table.css' %}" rel="stylesheet" />
-{% endblock css%}
-{% block content %}
+{% extends 'usuario/base.html' %} {% load static %} {% block css %}
+<link href="{% static 'css/inventario/table.css' %}" rel="stylesheet" />
+{% endblock css%} {% block content %}
 <table class="list_warehouse">
   <thead>
     <tr>
       <th>Nombre</th>
+      {% if user.employee.job|slugify == 'jefe-de-bodega'%}
       <th>Opciones</th>
+      {% endif %}
     </tr>
   </thead>
   <tbody>
     {% for i in warehouse %}
     <tr>
       <td class="row_selection">{{ i.warehouse_name }}</td>
+      {% if user.employee.job|slugify == 'jefe-de-bodega'%}
       <td class="options">
         <form action="{% url 'edit_warehouse' i.warehouse_id %}" method="PUT">
           {% csrf_token %}
@@ -25,10 +25,11 @@
         <form action="{% url 'delete_warehouse' i.warehouse_id %}" method="GET">
           {% csrf_token %}
           <button class="button is-danger is-outlined">
-            <i class='bx bxs-message-square-x'></i>
+            <i class="bx bxs-message-square-x"></i>
           </button>
         </form>
       </td>
+      {% endif %}
     </tr>
     {% endfor %}
   </tbody>
